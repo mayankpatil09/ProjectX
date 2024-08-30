@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Connection Result</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script> -->
+    
+    <link rel="stylesheet" href="/static/css/style.css?v=12345">
+    <script src="/static/js/script.js?v=12345"></script>
+
+
+
+</head>
+
+
+
+
+
+<body>
+    <h1>SSH Connection Result</h1>
+
+
+    <form action="/transfer_folder" method="post">
+        <input type="hidden" name="host" value="{{ host }}">
+        <input type="hidden" name="port" value="{{ port }}">
+        <input type="hidden" name="username" value="{{ username }}">
+        <input type="hidden" name="password" value="{{ password }}">
+        <input type="hidden" name="keyfile_path" value="{{ keyfile_path }}">
+
+        <label for="local_path">Local Path:</label>
+        <input type="text" id="local_path" name="local_path" required><br><br>
+
+        <label for="original_folder">Original Folder:</label>
+        <input type="text" id="original_folder" name="original_folder" required><br><br>
+
+        <input type="submit" value="Transfer Folder">
+    </form>
+
+
+    <p>{{ connection_message }}</p>
+    {% if current_directory %}
+        <p>Current working directory on remote server: {{ current_directory }}</p>
+    {% endif %}
+
+
+    <h1>Select a Folder</h1>
+    <p id="folderPath">Selected folder path will appear here.</p>
+    <ul id="fileList"></ul>
+
+
+    <!-- Progress bar -->
+    <div class="container">
+        <div class="progress-bar__container">
+            <div class="progress-bar">
+                <span class="progress-bar__text">0%</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <a href="/login">Back to Login</a>
+
+
+
+
+
+
+
+</body>
+</html>

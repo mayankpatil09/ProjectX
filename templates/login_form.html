@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Server Login</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="/static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+
+
+
+        <!-- Content Start -->
+        <div class="content open">
+
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>AutoKern</h3>
+                <div class="navbar-nav align-items-center ms-auto">
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        
+
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row vh-100 bg-light rounded align-items-center justify-content-center mx-0">
+                    <div class="col-md-6 text-center">
+                        <h3>Server Login</h3>
+
+
+                        <div class="col-sm-150 col-xl-150">
+                            <div class="bg-light rounded h-100 p-4">
+                                <!-- <h6 class="mb-4">Horizontal Form</h6> -->
+                                <form action="/submit_login" method="post" enctype="multipart/form-data" id="loginform">
+                                    <div class="row mb-3">
+                                        <label for="host" class="col-sm-2 col-form-label">Host: </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="host" name="host" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="port" class="col-sm-2 col-form-label">Port</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="port" name="port" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="username" name="username" required>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row mb-3">
+                                        <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                        <div class="col-sm-7">
+                                            <input type="password" class="form-control" id="password" name="password">
+                                        </div>
+                                    </div>
+                                
+                                    <h6 class="mb-4">Or</h6>
+                                
+                                    <div class="row mb-3">
+                                        <label for="keyfile" class="col-sm-2 col-form-label">RSA Key</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control" type="file" id="keyfile" name="keyfile">
+                                        </div>
+                                    </div>
+                                    
+
+
+                                    <div class="row mb-3">
+                                        <label for="os" class="col-sm-2 col-form-label">Operating System</label>
+                                        <div class="col-sm-7">
+                                            <div class="bg-light rounded h-100 p-1">
+                                                <select class="form-select form-select-sm mb-3" id="os" name="os" aria-label=".form-select-sm example" required>
+                                                    <option value="" disabled selected>Choose OS</option>
+                                                    <option value="1">Windows</option>
+                                                    <option value="2">Linux</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row mb-3">
+                                        <label for="folderInput" class="col-sm-2 col-form-label">Source Files</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control" type="file" id="folderInput" name="folderInput" webkitdirectory directory multiple>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row mb-3">
+                                        <label for="dest" class="col-sm-2 col-form-label">Destination Path </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="dest" name="dest" required>
+                                        </div>
+                                    </div>
+
+                                    <h1>Select a Folder</h1>
+                                    <input type="file" id="folderInput" webkitdirectory directory multiple>
+                                    <p id="folderPath">Selected folder path will appear here.</p>
+                                    <ul id="fileList"></ul>
+
+
+
+
+                                    
+
+                                    <button type="submit" class="btn btn-primary" value="submit">Sign in</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/lib/chart/chart.min.js"></script>
+    <script src="/static/lib/easing/easing.min.js"></script>
+    <script src="/static/lib/waypoints/waypoints.min.js"></script>
+    <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/static/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/scriptOG.js"></script>
+</body>
+
+</html>
